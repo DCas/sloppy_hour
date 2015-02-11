@@ -1,7 +1,7 @@
-<h1>Venues</h1>
+<h1>Nearby Venues</h1>
 <ul>
 <% @venues.each do |venue| %>
-  <li><%= link_to venue.name, venue %></li>
+  <li><%= "#{venue.distance.round(2)} miles - " %><%= link_to venue.name, venue %></li>
 <% end %>
 </ul>
 

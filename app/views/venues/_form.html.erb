@@ -1,8 +1,9 @@
 <%= simple_form_for @venue do |f| %>
-  <%= f.input :name %>
-  <%= f.input :street %>
-  <%= f.input :city %>
-  <%= f.input :state %>
-  <%= f.input :zipcode %>
+  <%= f.input :name, :input_html => { :data => {:geo => :name} }%>
+  <%= f.input :street, :input_html => { :data => {:geo => :route} }%>
+  <%= f.input :city, :input_html => { :data => {:geo => :locality} }%>
+  <%= f.input :state, :input_html => { :data => {:geo => :administrative_area_level_1} }%>
+  <%= f.input :zipcode, :input_html => { :data => {:geo => :postal_code} }%>
+  <%= f.input :country, as: :string, :input_html => { :data => {:geo => :country_short} }%>
   <%= f.button :submit %>
 <% end %>

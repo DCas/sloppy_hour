@@ -1,11 +1,11 @@
 class VenuesController < ApplicationController
+  before_filter :set_venue, only: [:show, :edit, :update, :destroy]
 
   def index
-    @venues = Venue.all
+    @venues = Venue.near(request.location.coordinates, 20)
   end
 
   def show
-    @venue = Venue.find(params[:id])
   end
 
   def new
@@ -22,10 +22,15 @@ class VenuesController < ApplicationController
     end
   end
 
-  def update
+  def edit
   end
 
-  def edit
+  def update
+    if @venue.update(venue_params)
+      redirect_to @venue
+    else
+      redirect_to edit_venue_path(@venue.id)
+    end
   end
 
   def destroy
@@ -36,4 +41,9 @@ class VenuesController < ApplicationController
   def venue_params
     params.require(:venue).permit(:name, :street, :city, :state, :zip, :country)
   end
+
+  def set_venue
+    @venue = Venue.find(params[:id])
+  end
+
 end
