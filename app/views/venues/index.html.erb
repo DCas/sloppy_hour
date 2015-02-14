@@ -1,7 +1,15 @@
 <h1>Nearby Venues</h1>
-<ul>
+<ul class="media-list">
 <% @venues.each do |venue| %>
-  <li><%= "#{venue.distance.round(2)} miles - " %><%= link_to venue.name, venue %></li>
+  <li class="media">
+    <div class="media-left">
+      <%= "#{venue.distance.round(2)} miles" %>
+    </div>
+    <div class="media-body">
+      <h3 class="media-heading"><%= link_to venue.name, venue %></h3>
+      <%= venue.address %>
+    </div>
+  </li>
 <% end %>
 </ul>
 
