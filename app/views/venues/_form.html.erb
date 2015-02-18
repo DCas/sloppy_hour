@@ -1,9 +1,16 @@
 <%= simple_form_for @venue do |f| %>
   <%= f.input :name, :input_html => { :data => {:geo => :name} }%>
+  <%= f.input :street_number, :input_html => { :data => {:geo => :street_number} }%>
   <%= f.input :street, :input_html => { :data => {:geo => :route} }%>
   <%= f.input :city, :input_html => { :data => {:geo => :locality} }%>
   <%= f.input :state, :input_html => { :data => {:geo => :administrative_area_level_1} }%>
   <%= f.input :zipcode, :input_html => { :data => {:geo => :postal_code} }%>
   <%= f.input :country, as: :string, :input_html => { :data => {:geo => :country_short} }%>
+  <%= f.input :latitude, as: :string, :input_html => { :data => {:geo => :lat} }%>
+  <%= f.input :longitude, as: :string, :input_html => { :data => {:geo => :lng} }%>
   <%= f.button :submit %>
+<% end %>
+
+<%= javascript_tag do %>
+  $('input#venue_name').geocomplete({details: 'form', detailsAttribute: 'data-geo', types: ["establishment"]});
 <% end %>

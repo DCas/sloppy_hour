@@ -1,6 +1,5 @@
 $('document').ready(function() {
 	getGeoLocation();
-	$('input#venue_name').geocomplete({details: 'form', detailsAttribute: 'data-geo', types: ["establishment"]});
 })
 
 function getGeoLocation() {

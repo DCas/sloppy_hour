@@ -4,11 +4,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
   def user_location
-    if cookies[:lat_lng]
-      @lat_lng = cookies[:lat_lng].split("|")
-    else
-      @lat_lng = request.location.coordinates
-    end
+    @lat_lng ||= cookies[:lat_lng] ? cookies[:lat_lng].split("|") : request.location.coordinates
   end
 
 end

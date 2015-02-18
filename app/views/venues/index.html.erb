@@ -1,4 +1,5 @@
 <h1>Nearby Venues</h1>
+
 <ul class="media-list">
 <% @venues.each do |venue| %>
   <li class="media">
@@ -12,7 +13,5 @@
   </li>
 <% end %>
 </ul>
-
-<p><%= @lat_lng %></p>
 
 <%= link_to 'New Venue', new_venue_path %>
