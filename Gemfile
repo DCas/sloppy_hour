@@ -38,6 +38,9 @@ gem 'google_places'
 
 gem 'acts-as-taggable-on', '~> 3.4'
 
+gem 'ice_cube'
+gem 'recurring_select'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
