@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150218040614) do
+ActiveRecord::Schema.define(version: 20150224044437) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -49,6 +49,16 @@ ActiveRecord::Schema.define(version: 20150218040614) do
   add_index "admin_users", ["email"], name: "index_admin_users_on_email", unique: true, using: :btree
   add_index "admin_users", ["reset_password_token"], name: "index_admin_users_on_reset_password_token", unique: true, using: :btree
 
+  create_table "deals", force: :cascade do |t|
+    t.string   "title"
+    t.text     "description"
+    t.integer  "venue_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  add_index "deals", ["venue_id"], name: "index_deals_on_venue_id", using: :btree
+
   create_table "taggings", force: :cascade do |t|
     t.integer  "tag_id"
     t.integer  "taggable_id"
@@ -77,10 +87,13 @@ ActiveRecord::Schema.define(version: 20150218040614) do
     t.string   "country"
     t.float    "latitude"
     t.float    "longitude"
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
     t.string   "zipcode"
     t.integer  "street_number"
+    t.string   "website"
+    t.string   "google_place_id"
   end
 
+  add_foreign_key "deals", "venues"
 end
