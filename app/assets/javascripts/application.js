@@ -15,5 +15,6 @@
 //= require twitter/bootstrap
 //= require jquery-geocomplete
 //= require recurring_select
+//= require jquery-mobile-rs
 //= require turbolinks
 //= require_tree .
