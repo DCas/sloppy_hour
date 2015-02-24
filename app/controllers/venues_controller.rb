@@ -39,7 +39,7 @@ class VenuesController < ApplicationController
 
   private
   def venue_params
-    params.require(:venue).permit(:name, :street_number, :street, :city, :state, :zipcode, :country, :latitude, :longitude)
+    params.require(:venue).permit(:name, :street_number, :street, :city, :state, :zipcode, :country, :latitude, :longitude, :website, :google_place_id)
   end
 
   def set_venue

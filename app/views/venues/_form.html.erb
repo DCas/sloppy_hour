@@ -1,5 +1,6 @@
 <%= simple_form_for @venue do |f| %>
   <%= f.input :name, :input_html => { :data => {:geo => :name} }%>
+  <%= f.input :website, :input_html => { :data => {:geo => :website} }%>
   <%= f.input :street_number, :input_html => { :data => {:geo => :street_number} }%>
   <%= f.input :street, :input_html => { :data => {:geo => :route} }%>
   <%= f.input :city, :input_html => { :data => {:geo => :locality} }%>
@@ -8,6 +9,7 @@
   <%= f.input :country, as: :string, :input_html => { :data => {:geo => :country_short} }%>
   <%= f.input :latitude, as: :string, :input_html => { :data => {:geo => :lat} }%>
   <%= f.input :longitude, as: :string, :input_html => { :data => {:geo => :lng} }%>
+  <%= f.input :google_place_id, :input_html => { :data => {:geo => :place_id} }%>
   <%= f.button :submit %>
 <% end %>
 
