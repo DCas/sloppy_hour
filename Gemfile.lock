@@ -237,6 +237,9 @@ GEM
       sprockets (>= 2.8, < 4.0)
       sprockets-rails (>= 2.0, < 4.0)
       tilt (~> 1.1)
+    schedulable (0.0.6)
+      ice_cube
+      rails (>= 4.0.3)
     sdoc (0.4.1)
       json (~> 1.7, >= 1.7.7)
       rdoc (~> 4.0)
@@ -308,6 +311,7 @@ DEPENDENCIES
   recurring_select
   rspec-rails
   sass-rails (~> 5.0)
+  schedulable
   sdoc (~> 0.4.0)
   simple_form
   spring

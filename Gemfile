@@ -41,6 +41,7 @@ gem 'acts-as-taggable-on', '~> 3.4'
 gem 'chronic'
 gem 'ice_cube'
 gem 'recurring_select'
+gem 'schedulable'
 # gem 'schedulable', github: 'DCas/schedulable', branch: 'master'
 # gem 'schedulable', :path => "~/gemcache/schedulable"
 
