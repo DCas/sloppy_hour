@@ -1,5 +1,4 @@
 class Schedule < ActiveRecord::Base
-  
   include Schedulable::ScheduleSupport
   
   serialize :days
@@ -9,5 +8,5 @@ class Schedule < ActiveRecord::Base
   
   after_initialize :init_schedule
   after_save :init_schedule
-  
+
 end
