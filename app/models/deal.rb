@@ -1,5 +1,5 @@
 class Deal < ActiveRecord::Base
-  acts_as_schedulable
+  acts_as_schedulable occurrences: :deal_occurrences
 
   belongs_to :venue
   has_one :schedule, as: :schedulable
