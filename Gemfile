@@ -24,6 +24,8 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
 gem 'simple_form'
 
+gem 'font-awesome-sass'
+
 #devise for authentication
 gem 'devise'
 
