@@ -2,7 +2,9 @@
 <p><%= @venue.address %><p>
 <p><%= link_to "Website", @venue.website unless @venue.website.nil? %><p>
 
-<% if current_admin_user %>
+<% if user_signed_in? %>
   <%= link_to 'Edit', edit_venue_path(@venue) %>
   <%= link_to 'Destroy', @venue, method: :delete, data: { confirm: 'Are you sure?' } %>
 <% end %>
+
+<%= link_to 'Add New Deal', new_deal_path(:venue_id => @venue.id), method: 'get' %>

@@ -1,17 +1,44 @@
-<h1>Nearby Venues</h1>
-<%= link_to 'New Venue', new_venue_path %>
+<%= button_to 'New Venue', new_venue_path, class: "btn btn-primary pull-right", method: "get" %>
+<h1>All Venues</h1>
 
-<ul class="media-list">
-<% @venues.each do |venue| %>
-  <li class="media">
-    <div class="media-left">
-      <%= "#{venue.distance.round(2)} miles" %>
-    </div>
-    <div class="media-body">
-      <h3 class="media-heading"><%= link_to venue.name, venue %></h3>
-      <%= venue.address %>
-    </div>
-  </li>
-<% end %>
-</ul>
+<table class="table table-striped table-hover">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Street Number</th>
+      <th>Street</th>
+      <th>City</th>
+      <th>State</th>
+      <th>Zipcode</th>
+      <th>Country</th>
+      <th>Latitude</th>
+      <th>Longitude</th>
+      <th>Website</th>
+      <th>GID</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @venues.each do |venue| %>
+    <tr>
+      <td><%= venue.name %></td>
+      <td><%= venue.street_number %></td>
+      <td><%= venue.street %></td>
+      <td><%= venue.city %></td>
+      <td><%= venue.state %></td>
+      <td><%= venue.zipcode %></td>
+      <td><%= venue.country %></td>
+      <td><%= venue.latitude %></td>
+      <td><%= venue.longitude %></td>
+      <td><%#= link_to("Website", venue.website, target: 'blank') unless venue.website.nil? %></td>
+      <td><%#= venue.google_place_id %></td>
+      <td><%= link_to "Show", venue %></h3></td>
+      <td><%= link_to "Edit", edit_venue_path(venue) %>
+      <td><%= link_to "Destroy", venue, method: :delete, data: { confirm: 'Are you sure?' } %>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
 

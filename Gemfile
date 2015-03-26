@@ -38,6 +38,13 @@ gem 'google_places'
 
 gem 'acts-as-taggable-on', '~> 3.4'
 
+gem 'chronic'
+gem 'ice_cube'
+gem 'recurring_select'
+gem 'schedulable'
+# gem 'schedulable', github: 'DCas/schedulable', branch: 'master'
+# gem 'schedulable', :path => "~/gemcache/schedulable"
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
@@ -58,7 +65,7 @@ group :development, :test do
 
   # Access an IRB console on exception pages or by using <%= console %> in views
   gem 'web-console', '~> 2.0'
-
+  gem 'pry-rails'
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
 end

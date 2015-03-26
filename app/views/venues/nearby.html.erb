@@ -1,0 +1,16 @@
+<%= button_to 'New Venue', new_venue_path, class: "btn btn-primary pull-right", method: "get" %>
+<h1>All Venues</h1>
+
+<ul class="media-list">
+<% @venues.each do |venue| %>
+  <li class="media">
+    <div class="media-left">
+      <%= "#{venue.distance.round(2)} miles" %>
+    </div>
+    <div class="media-body">
+      <h3 class="media-heading"><%= link_to venue.name, venue %></h3>
+      <%= venue.address %>
+    </div>
+  </li>
+<% end %>
+</ul>

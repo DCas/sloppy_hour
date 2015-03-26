@@ -11,6 +11,8 @@
  * file per style scope.
  *
  *= require bootstrap_and_overrides
+ *= require recurring_select
+ *= require jquery-mobile-rs
  *= require_tree .
  *= require_self
  */

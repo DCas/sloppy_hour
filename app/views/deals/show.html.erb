@@ -1,0 +1,11 @@
+<h3>Deal:</h3>
+
+Title:<%= @deal.title %></br>
+Venue: <%= link_to @deal.venue.name, @deal.venue %></br>
+Description: <%= @deal.description %></br>
+Next Occurrence: <%= @deal.schedule.next_occurrence.strftime('%B %d, %Y') %></br>
+
+<% if current_admin_user %>
+  <%= link_to 'Edit', edit_deal_path(@deal) %>
+  <%= link_to 'Destroy', @deal, method: :delete, data: { confirm: 'Are you sure?' } %>
+<% end %>
