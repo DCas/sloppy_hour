@@ -4,6 +4,7 @@ FactoryGirl.define do
     title "Example Deal"
     description "Example deal description"
     venue
+    schedule
   end
 
 end

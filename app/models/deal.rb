@@ -6,4 +6,8 @@ class Deal < ActiveRecord::Base
 
   validates :title, :venue, presence: true
 
+  def next_occurrence
+    schedule.next_occurrence
+  end
+
 end

@@ -13,3 +13,11 @@ Geocoder::Lookup::Test.add_stub(
     }
   ]
 )
+Geocoder::Lookup::Test.add_stub(
+  "88 Market Street, Manchester, NH 03101", [
+    {
+      'latitude'  => 42.9905932,
+      'longitude' => -71.4653185
+    }
+  ]
+)
