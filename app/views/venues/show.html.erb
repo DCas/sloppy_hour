@@ -1,7 +1,7 @@
 <h1><%= @venue.name %></h1>
 <p><%= @venue.address %><p>
 
-<% if current_admin_user %>
+<% if user_signed_in? %>
   <%= link_to 'Edit', edit_venue_path(@venue) %>
   <%= link_to 'Destroy', @venue, method: :delete, data: { confirm: 'Are you sure?' } %>
 <% end %>
