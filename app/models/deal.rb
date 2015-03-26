@@ -4,4 +4,6 @@ class Deal < ActiveRecord::Base
   belongs_to :venue
   has_one :schedule, as: :schedulable
 
+  validates :title, :venue, presence: true
+
 end
