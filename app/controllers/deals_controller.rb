@@ -1,7 +1,8 @@
 class DealsController < ApplicationController
+  before_filter :authenticate_user!, except: [:index, :show]
   before_filter :set_deal, only: [:show, :edit, :update, :destroy]
   before_filter :filter_blank_times, only: [:create, :update]
-  
+
   def index
     @deals = Deal.all
   end
