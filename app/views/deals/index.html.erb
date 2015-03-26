@@ -1,13 +1,14 @@
 <%= button_to 'New Deal', new_deal_path, class: "btn btn-primary pull-right", method: "get" %>
 <h1>All Deals</h1>
 
-
 <table class="table table-striped table-hover">
   <thead>
     <tr>
       <th>Title</th>
       <th>Description</th>
       <th>Venue</th>
+      <th>Schedule</th>
+      <th></th>
       <th></th>
       <th></th>
     </tr>
@@ -18,9 +19,12 @@
       <td><%= deal.title %></td>
       <td><%= deal.description %></td>
       <td><%= link_to deal.venue.name, deal unless deal.venue.nil? %></h3></td>
+      <td><%= deal.schedule.to_s %></td>
+      <td><%= link_to "Show", deal %>
       <td><%= link_to "Edit", edit_deal_path(deal) %>
       <td><%= link_to "Destroy", deal, method: :delete, data: { confirm: 'Are you sure?' } %>
     </tr>
     <% end %>
   </tbody>
 </table>
+
