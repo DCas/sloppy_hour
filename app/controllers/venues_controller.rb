@@ -1,6 +1,6 @@
 class VenuesController < ApplicationController
   before_filter :set_venue, only: [:show, :edit, :update, :destroy]
-
+  before_filter :authenticate_user!
   def index
     @venues = Venue.nearby(user_location)
   end
