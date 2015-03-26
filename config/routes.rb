@@ -1,14 +1,13 @@
 Rails.application.routes.draw do
-  get 'deals/create'
+  devise_for :users
 
   resources :venues
-
   resources :deals
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  root 'venues#index'
+  root 'deals#index'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
