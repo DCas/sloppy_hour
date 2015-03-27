@@ -1,6 +1,6 @@
 FactoryGirl.define do
   
-  factory :deal do
+  factory :deal, aliases: [:schedulable] do
     title "Example Deal"
     description "Example deal description"
     venue
