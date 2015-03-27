@@ -22,8 +22,8 @@
       <td><%= link_to("Website", venue.website, target: 'blank') unless venue.website.nil? %></td>
       <td><% if venue.geocoded? %><i class="fa fa-check"></i><% end %></td>
       <td><% if venue.google_place_id %><i class="fa fa-check"></i><% end %></td>
-      <td><%= link_to "Edit", edit_venue_path(venue) %>
-      <td><%= link_to "Destroy", venue, method: :delete, data: { confirm: 'Are you sure?' } %>
+      <td><%= link_to "Edit", edit_venue_path(venue) unless !user_signed_in? %>
+      <td><%= link_to "Destroy", venue, method: :delete, data: { confirm: 'Are you sure?' } unless !user_signed_in? %>
     </tr>
     <% end %>
   </tbody>

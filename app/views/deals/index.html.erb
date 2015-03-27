@@ -20,8 +20,8 @@
       <td><%= deal.description %></td>
       <td><%= link_to deal.venue.name, deal unless deal.venue.nil? %></h3></td>
       <td><%= deal.schedule.to_s %></td>
-      <td><%= link_to "Edit", edit_deal_path(deal) %>
-      <td><%= link_to "Destroy", deal, method: :delete, data: { confirm: 'Are you sure?' } %>
+      <td><%= link_to "Edit", edit_deal_path(deal) unless !user_signed_in? %>
+      <td><%= link_to "Destroy", deal, method: :delete, data: { confirm: 'Are you sure?' } unless !user_signed_in? %>
     </tr>
     <% end %>
   </tbody>

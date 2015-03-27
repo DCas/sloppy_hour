@@ -1,13 +1,14 @@
-<h3>Deal:</h3>
+<h3>Deal Details</h3>
 
-<b>Title:</b>
-<p><%= @deal.title %></p>
-<b>Venue:</b>
-<p><%= link_to @deal.venue.name, @deal.venue %></p>
-<b>Description:</b>
-<p><%= @deal.description %></p>
-<b>Next Occurrence:</b>
-<p><%= @deal.schedule.next_occurrence.strftime('%B %d, %Y') %></p>
+<p><b>Title:</b> <%= @deal.title %></p>
+
+<p><b>Venue:</b> <%= link_to @deal.venue.name, @deal.venue %></p>
+
+<p><b>Description:</b> <%= @deal.description %></p>
+
+<p><b>Schedule:</b> <%= @deal.schedule.to_s %></p>
+
+<p><b>Next Occurrence:</b> <%= @deal.schedule.next_occurrence.strftime('%B %d, %Y') %></p>
 
 <% if user_signed_in? %>
   <%= link_to 'Edit', edit_deal_path(@deal) %>
