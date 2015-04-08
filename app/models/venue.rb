@@ -27,4 +27,16 @@ class Venue < ActiveRecord::Base
     street_number.to_s + ' ' + [street, city, state].compact.join(', ') + ' ' + zipcode.to_s
   end
 
+  def street_address
+    street_number.to_s + ' ' + street
+  end
+
+  def self.search(query)
+    if query
+      Venue.nearby(query).with_deals
+    else
+      Venue.all
+    end
+  end
+
 end

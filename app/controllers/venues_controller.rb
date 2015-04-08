@@ -1,8 +1,12 @@
 class VenuesController < ApplicationController
   before_filter :set_venue, only: [:show, :edit, :update, :destroy]
-  before_filter :authenticate_user!
+
   def index
-    @venues = Venue.nearby(user_location)
+    if search_params
+      @venues = Venue.nearby(params[:search][:location]).with_deals
+    else
+      @venues = Venue.nearby(user_location)
+    end
   end
 
   def show
@@ -44,6 +48,10 @@ class VenuesController < ApplicationController
 
   def set_venue
     @venue = Venue.find(params[:id])
+  end
+
+  def search_params
+    params[:search] && params[:search][:location]
   end
 
 end

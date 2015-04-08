@@ -1,0 +1,15 @@
+<div class="venue-row row">
+  <div class="venue-distance col-xs-2">
+    <p><%= venue.distance.round(1) if venue.geocoded? %></p>
+    <p class="subtext">Miles</p>
+  </div>
+  <div class="venue-info col-xs-6">
+    <h3><%= link_to venue.name, venue %></h3>
+    <p class="subtext"><%= venue.street_address %></p>
+  </div>
+  <div class="time-remaining col-xs-2">
+    <p>-</p>
+    <p class="subtext">Remaining</p>
+    <i class="fa fa-chevron-right pull-right"></i>
+  </div>
+</div>
