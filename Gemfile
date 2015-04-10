@@ -26,8 +26,6 @@ gem 'simple_form'
 
 gem 'font-awesome-sass'
 
-gem 'acts-as-taggable-on', '~> 3.4'
-
 #devise for authentication
 gem 'devise'
 
