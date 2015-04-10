@@ -1,12 +1,9 @@
 class VenuesController < ApplicationController
   before_filter :set_venue, only: [:show, :edit, :update, :destroy]
+  before_filter :user_location
 
   def index
-    if search_params
-      @venues = Venue.near(params[:search][:location], 20).with_deals_on(Date.current)
-    else
-      @venues = Venue.near(@lat_lng, 20).with_deals_on(Date.current)
-    end
+    @venues = Venue.near(location_query).with_deals_on(Date.current).preload(:todays_deals)
   end
 
   def show
@@ -50,8 +47,12 @@ class VenuesController < ApplicationController
     @venue = Venue.find(params[:id])
   end
 
-  def search_params
-    params[:search] && params[:search][:location]
+  def location_query
+    if params[:search] && params[:search][:location]
+      params[:search][:location]
+    else
+      @lat_lng
+    end
   end
 
 end
