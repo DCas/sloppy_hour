@@ -1,5 +1,6 @@
 class Venue < ActiveRecord::Base
   has_many :deals
+  has_many :deal_occurrences, through: :deals
 
   validates :city, :country, :name, :state, :street, :street_number, :zipcode, presence: true
   before_validation :ensure_geocoded unless :geocoded?
@@ -16,8 +17,18 @@ class Venue < ActiveRecord::Base
     end
   end
 
-  scope :with_deals, -> { joins(:deals).uniq }
-  scope :with_deals_on, ->(date) { with_deals.where(deals: {created_at: (Time.now.midnight)..Time.now.midnight+ 1.day}) }
+  #joins and preload rather than includes to maintain geocoder distance data
+  # scope :with_deals_on, ->(date) {
+  #   joins(:deals, :deal_occurrences).preload(:deals, :deal_occurrences)
+  #   .where(deal_occurrences: {:date => date.midnight..date.end_of_day})
+  #   .distinct(:venue)
+  # }
+  
+  scope :with_deals_on, ->(date) {
+    joins(:deal_occurrences).merge(Deal.occurring_on(date))
+    .preload(:deal_occurrences)
+    .distinct(:venue)
+  }
 
   def self.nearby(location, radius=20)
     Venue.near(location, radius)

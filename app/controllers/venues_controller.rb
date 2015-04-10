@@ -3,9 +3,9 @@ class VenuesController < ApplicationController
 
   def index
     if search_params
-      @venues = Venue.nearby(params[:search][:location]).with_deals
+      @venues = Venue.near(params[:search][:location], 20).with_deals_on(Date.current)
     else
-      @venues = Venue.nearby(user_location)
+      @venues = Venue.near(@lat_lng, 20).with_deals_on(Date.current)
     end
   end
 
