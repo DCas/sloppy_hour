@@ -8,7 +8,4 @@ class Deal < ActiveRecord::Base
 
   scope :occurring_on, -> (date){ joins(:deal_occurrences).merge(DealOccurrence.unscoped.on_date(date)) }
 
-  def next_occurrence
-    schedule.next_occurrence
-  end
 end
