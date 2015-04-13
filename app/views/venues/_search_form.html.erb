@@ -1,13 +1,19 @@
 <%= form_for :search, method: :get, url: venues_path do |form| %>
-  <div class="form-group">
+<!--   <div class="form-group">
     <%= form.label :value, 'Location' %>
     <%= form.text_field :location, class: 'form-control' %>
-  </div>
+  </div> -->
   <div class="form-group">
-    <%= form.label :value, 'Name' %>
-    <%= form.text_field :name, class: 'form-control' %>
+  <%#= form.label :value, 'Location' %>
+  <div class="input-group">
+    <%= form.text_field :location, class: 'form-control' %>
+    <span class="input-group-btn">
+      <%= form.submit 'Search', class: 'btn btn-default' %>
+    </span>
+  </div>
   </div>
   <%#= form.label :value, 'Deal Type' %>
   <%#= form.check_box :deal_types, {multiple: true}, :type_1 %>
-  <%= form.submit 'Search', class: 'btn btn-default' %>
+  
 <% end %>
+

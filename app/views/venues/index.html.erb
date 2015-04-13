@@ -1,6 +1,9 @@
-<%= render partial: 'venue', collection: @venues %>
-
 <%= render partial: 'search_form' %>
+
+<ul class="results-list">
+  <%= render partial: 'venue', collection: @venues %>
+</ul>
+
 
 <!-- <div class="col-xs-12">
 <%= button_to 'New Venue', new_venue_path, class: "btn btn-primary pull-right", method: "get" %>

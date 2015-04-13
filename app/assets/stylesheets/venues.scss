@@ -2,16 +2,49 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.venue-row {
+
+.results-list {
+	list-style-type: none;
+	padding-left: 0;
+
 	h3 {
-		font-size: 16px;
-		margin-top: 0;
+		font-size: 18px;
+		margin: 0;
+		font-weight: 600;
 	}
-	.venue-distance {
+
+
+	> li {
+		@include make-row();
+		padding: 10px 0;
+		border-top: 1px solid gray;
+	}
+}
+
+.venue {
+	@include clearfix();
+	
+	i {
+		float: right;
+	}
+}
+
+.venue-distance {
+	@include make-xs-column(2);
+}
+.venue-details {
+	@include make-xs-column(8);
+}
+.countdown {
+	@include make-xs-column(2);
+	float: right;
+}
+
+.accent-data {
+	span {
+		display: block;
 		text-align: center;
 	}
 
-	.subtext {
-		font-size: 10px;
-	}
+
 }

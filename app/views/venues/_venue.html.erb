@@ -1,24 +1,48 @@
-<div class="venue-row row">
-  <div class="venue-details clearfix">
-    <div class="venue-distance col-xs-2">
-      <p><%= venue.distance.round(1) if venue.geocoded? %></p>
-    <p class="subtext">Miles</p>
+<li>
+  <div class="venue">
+    <div class="venue-distance accent-data">
+      <span><%= venue.geocoded? ? venue.distance.round(1) : '-' %><span>
+      <span>Miles</span>
     </div>
-    <div class="venue-info col-xs-6">
+
+    <div class="venue-details">
       <h3><%= link_to venue.name, venue %></h3>
       <p class="subtext"><%= venue.street_address %></p>
     </div>
-    <div class="time-remaining col-xs-2">
-      <p>-</p>
-      <p class="subtext">Remaining</p>
-      <i class="fa fa-chevron-right pull-right"></i>
-    </div>
-  </div>
-  
-  <ul class="venue-deals">
-    <% venue.todays_deals.each do |deal| %>
-      <li><%= link_to deal.title, deal %></li>
-    <% end %>
-  </ul>
 
+    <div class="countdown accent-data">
+      <span><%= "-" %></span>
+      <span>Remaining</span>
+    </div>
+
+  </div>
+<!--     <div class="table-responsive">
+      <table class="table">
+        <% venue.todays_deals.each do |deal| %>
+          <tr>
+            <th scope="row"><i class="fa fa-beer"></i></th>
+            <td><%= link_to deal.title, deal %></td>
+            <td><%= deal.description %></td>
+          </tr>
+        <% end %>
+      </table>
+    </div> -->
+</li>
+
+<!--
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h3><%= link_to venue.name, venue %> <small><%= venue.street_address %></small></h3>
+  </div>
+
+      <table class="table">
+        <% venue.todays_deals.each do |deal| %>
+          <tr>
+            <th scope="row"><i class="fa fa-beer"></i></th>
+            <td><%= link_to deal.title, deal %></td>
+            <td><%= deal.description %></td>
+          </tr>
+        <% end %>
+      </table>
 </div>
+-->
