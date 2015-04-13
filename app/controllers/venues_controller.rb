@@ -1,6 +1,7 @@
 class VenuesController < ApplicationController
   before_filter :set_venue, only: [:show, :edit, :update, :destroy]
   before_filter :user_location
+  respond_to :html, :json
 
   def index
     @venues = Venue.near(location_query).with_deals_on(Date.current).preload(:todays_deals)
