@@ -1,3 +1,5 @@
+<script src="http://maps.googleapis.com/maps/api/js?libraries=places&sensor=false"></script>
+
 <%= simple_form_for @venue do |f| %>
   <%= f.input :name, :input_html => { :data => {:geo => :name} }%>
   <%= f.input :website, :input_html => { :data => {:geo => :website} }%>
