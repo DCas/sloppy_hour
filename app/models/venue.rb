@@ -1,5 +1,5 @@
 class Venue < ActiveRecord::Base
-  has_many :deals
+  has_many :deals, dependent: :destroy
   has_many :todays_deals, -> { occurring_on(Date.current) },
                               :class_name => "Deal"
   has_many :deal_occurrences, through: :deals
@@ -17,14 +17,6 @@ class Venue < ActiveRecord::Base
       venue.zipcode     ||= geo.postal_code
       venue.country       = geo.country_code
     end
-  end
-
-  def as_json(options={})
-    {
-      name: name,
-      address: address,
-      distance: distance
-    }
   end
 
   #joins and preload rather than includes to maintain geocoder distance data
