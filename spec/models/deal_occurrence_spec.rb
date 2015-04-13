@@ -16,16 +16,4 @@ describe DealOccurrence do
     end
   end
 
-  describe ".today" do
-    it "returns today's DealOccurrences" do
-      today_deal = FactoryGirl.create(:deal_occurrence, date: Date.current)
-      other_deal = FactoryGirl.create(:deal_occurrence, date: Date.yesterday)
-
-      results = DealOccurrence.today
-
-      expect(results).to include(today_deal)
-      expect(results).not_to include(other_deal)
-    end
-  end
-
 end
