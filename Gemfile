@@ -37,6 +37,13 @@ gem 'google_places'
 gem 'chronic'
 gem 'ice_cube'
 gem 'schedulable'
+
+gem 'seed_dump'
+# Gemfile
+gem 'rabl'
+# Also add either `oj` or `yajl-ruby` as the JSON parser
+gem 'oj'
+
 # gem 'schedulable', github: 'DCas/schedulable', branch: 'master'
 # gem 'schedulable', :path => "~/gemcache/schedulable"
 
