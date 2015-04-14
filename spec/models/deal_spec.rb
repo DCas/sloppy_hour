@@ -7,6 +7,12 @@ describe Deal do
   it { should belong_to(:venue) }
   it { should have_one(:schedule) }
 
+  describe "Deal.filtered" do
+    pending
+    it "should filter Deals" do
+    end
+  end
+
   describe ".destroy" do
     it "should destroy associated DealOccurrences" do
       pre_create_total_occurrences = DealOccurrence.count

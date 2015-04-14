@@ -4,7 +4,7 @@ class DealsController < ApplicationController
   before_filter :filter_blank_times, only: [:create, :update]
 
   def index
-    @deals = Deal.all
+    @deals = Deal.filtered(params[:filter])
   end
 
   def show
@@ -51,7 +51,7 @@ class DealsController < ApplicationController
   end
 
   def deal_params
-    params.require(:deal).permit(:title, :description, :venue_id, :deal_start, :deal_end, :time, schedule_attributes: Schedulable::ScheduleSupport.param_names)
+    params.require(:deal).permit(:title, :description, :venue_id, :deal_start, :deal_end, :time, :filter, schedule_attributes: Schedulable::ScheduleSupport.param_names)
   end
 
   def filter_blank_times
