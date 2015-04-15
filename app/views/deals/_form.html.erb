@@ -1,7 +1,8 @@
 <%= simple_form_for @deal do |f| %>
-  <%= f.association :venue, collection: @venues, label_method: :name, value_method: :id %>  
+  <%= f.association :venue, collection: @venues, label_method: :name, value_method: :id %>
   <%= f.input :title %>
   <%= f.input :description %>
+  <%= f.collection_check_boxes :item_type_list, [['beer', 'Beer'] ,['food', 'Food'] ,['liquor', 'Liquor'] ,['cocktails', 'Cocktails'], ['shots', 'Shots']], :first, :last, {:item_wrapper_class => 'checkbox-inline'} %>
   <%= f.input :schedule, as: :schedule %>
   <%= f.button :submit %>
 <% end %>
