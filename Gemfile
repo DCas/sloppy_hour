@@ -44,6 +44,8 @@ gem 'rabl'
 # Also add either `oj` or `yajl-ruby` as the JSON parser
 gem 'oj'
 
+gem 'acts-as-taggable-on', '~> 3.4'
+
 # gem 'schedulable', github: 'DCas/schedulable', branch: 'master'
 # gem 'schedulable', :path => "~/gemcache/schedulable"
 
