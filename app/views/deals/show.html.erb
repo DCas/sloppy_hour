@@ -8,7 +8,7 @@
 
 <p><b>Schedule:</b> <%= @deal.schedule.to_s %></p>
 
-<p><b>Next Occurrence:</b> <%= @deal.schedule.next_occurrence.strftime('%B %d, %Y') %></p>
+<p><b>Next Occurrence:</b> <%= @deal.schedule.next_occurrence.strftime('%B %d, %Y') if @deal.schedule.next_occurrence  %></p>
 
 <% if user_signed_in? %>
   <%= link_to 'Edit', edit_deal_path(@deal) %>

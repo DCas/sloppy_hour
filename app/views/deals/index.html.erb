@@ -9,6 +9,7 @@
     <tr>
       <th>Title</th>
       <th>Description</th>
+      <th>Item Types</th>
       <th>Venue</th>
       <th>Schedule</th>
       <th></th>
@@ -20,6 +21,7 @@
     <tr>
       <td><%= link_to deal.title, deal %></td>
       <td><%= deal.description %></td>
+      <td><%= deal.item_type_list %></td>
       <td><%= link_to deal.venue.name, deal unless deal.venue.nil? %></h3></td>
       <td><%= deal.schedule.to_s %></td>
       <td><%= link_to "Edit", edit_deal_path(deal) unless !user_signed_in? %>

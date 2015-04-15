@@ -51,7 +51,7 @@ class DealsController < ApplicationController
   end
 
   def deal_params
-    params.require(:deal).permit(:title, :description, :venue_id, :deal_start, :deal_end, :time, :filter, schedule_attributes: Schedulable::ScheduleSupport.param_names)
+    params.require(:deal).permit(:title, :description, :venue_id, :deal_start, :deal_end, :time, :filter, item_type_list: [], schedule_attributes: Schedulable::ScheduleSupport.param_names)
   end
 
   def filter_blank_times
