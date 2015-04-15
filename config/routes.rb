@@ -10,7 +10,12 @@ Rails.application.routes.draw do
   namespace :admin do
     resources :venues, :deals
   end
-  resources :deals
+  resources :deals do
+    collection do
+      get 'search'
+    end
+  end
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

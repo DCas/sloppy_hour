@@ -2,6 +2,7 @@
   <div class="venue">
     <div class="venue-distance accent-data">
       <span><%= venue.geocoded? ? venue.distance.round(1) : '-' %><span>
+      <span><%#= venue.geocoded? ? venue.distance_from(@lat_lng).round(1) : '-' %><span>
       <span>Miles</span>
     </div>
 

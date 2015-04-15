@@ -1,0 +1,17 @@
+<%= form_for :filter, method: :get, url: deals_path do |f| %>
+<h2>What I want:</h2>
+<div class="filter-icons">
+  <i class="fa fa-beer fa-2x fa-border" data-item-type="beer"></i>
+  <i class="fa fa-cutlery fa-2x fa-border" data-item-type="food"></i>
+  <i class="fa fa-glass fa-2x fa-border" data-item-type="liquor"></i>
+</div>
+
+<h2>Where I want:</h2>
+
+<h2>When I want:</h2>
+<div class="form-group">
+    <%= f.collection_select :date, Date::DAYNAMES, :to_s, :to_s, {:item_wrapper_class => 'checkbox-inline', :class => 'form-control'} %>
+</div>
+
+
+  <% end %>

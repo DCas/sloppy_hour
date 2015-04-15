@@ -7,6 +7,10 @@ class DealsController < ApplicationController
     @deals = Deal.filtered(params[:filter])
   end
 
+  def search
+
+  end
+
   def show
   end
 

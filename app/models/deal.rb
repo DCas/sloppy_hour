@@ -9,13 +9,20 @@ class Deal < ActiveRecord::Base
   scope :occurring_on, -> (date){ joins(:deal_occurrences).merge(DealOccurrence.unscoped.on_date(date)) }
 
   def self.filtered(params)
+    # 5.times {puts params[:date] if params && params[:date]}
+    # if params && params[:date]
+    #   Deal.occurring_on(Chronic.parse('next ' + params[:date]))
+    # else
+    #   Deal.occurring_on(Date.current)
+    # end
     filter.restrict(params)
+
   end
 
   private
 
   def self.filter
-    @@filter = DealFilter.new(Deal.all)
+    @filter = DealFilter.new(Deal.all)
   end
 
 end

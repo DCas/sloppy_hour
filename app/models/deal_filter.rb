@@ -7,18 +7,18 @@ class DealFilter
   def restrict(restrictions)
     on_date!(restrictions.try(:[], :date))
 
-    @relation
+    # @relation
   end
 
   private
 
   def on_date!(date)
     begin
-      filter_date = Date.parse(date)
+      filter_date = Chronic.parse('next ' + date)
     rescue ArgumentError, TypeError
       filter_date = Date.current
     end
-    @relation.occurring_on(filter_date)
+    Deal.occurring_on(filter_date)
   end
 
   def where(*a)

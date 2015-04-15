@@ -1,10 +1,16 @@
-<%= form_for :filter, method: :get, url: deals_path do |form| %>
-  <div class="form-group">
-    <div class="input-group">
-      <%= form.text_field :date, class: 'form-control' %>
-      <span class="input-group-btn">
-        <%= form.submit 'Search', class: 'btn btn-default' %>
-      </span>
-    </div>
+<%= form_for :filter, method: :get, url: deals_path do |f| %>
+<!--   <div class="form-group">
+      <%= f.text_field :date, class: 'form-control' %>
+  </div> -->
+
+  <div class="form-group item-types">
+      <%= f.collection_check_boxes :item_type_list, [['beer', 'Beer'] ,['food', 'Food'] ,['liquor', 'Liquor'] ,['cocktails', 'Cocktails'], ['shots', 'Shots']], :first, :last, {:item_wrapper_class => 'checkbox-inline', :class => 'form-control'} %>
   </div>
+
+  <div class="form-group">
+      <%= f.collection_select :date, Date::DAYNAMES, :to_s, :to_s, {:item_wrapper_class => 'checkbox-inline', :class => 'form-control'} %>
+  </div>
+
+  <%= f.submit 'Search', class: 'btn btn-default' %>
 <% end %>
+

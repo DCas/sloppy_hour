@@ -1,0 +1,50 @@
+.navbar {
+	background-color: #2D3E50;
+	margin-bottom: 0;
+	a {
+		color: #fff;
+	}
+}
+
+.navbar-default .navbar-nav > li > a {
+	color: #fff;
+}
+
+.navbar-default .navbar-brand {
+	font-family: 'Lobster', cursive;
+	color: #fff;
+	font-size: 26px;
+}
+
+.location-bar {
+	background-color: #EBEBEB;
+	padding: 5px 0;
+	text-align: center;
+	font-size: 16px;
+	text-transform: uppercase;
+}
+
+.nav-options {
+	text-align: center;
+
+	li {
+		padding: 0 15px;
+	}
+	a {
+		color: #fff;
+	}
+}
+
+.nav-options {
+	background-color: #1F2025;
+	color: #fff;
+	padding: 5px 0;
+}
+
+h2 {
+	background-color: #2D3E50;
+	padding: 10px 3px;
+	font-size: 20px;
+	font-weight: bold;
+	color: #fff;
+}

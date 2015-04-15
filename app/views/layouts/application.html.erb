@@ -1,14 +1,36 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>GetTimDrunk</title>
+  <title>Sloppy Hour</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <link href='http://fonts.googleapis.com/css?family=Lobster' rel='stylesheet' type='text/css'>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
   <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body data-no-turbolink>
   <%= render partial: 'layouts/navbar' %>
+  <div class="location-bar">
+    <%= Time.now.strftime('%l:%M %P %A') + ' | ' + @city_state %>
+  </div>
+
+  <ul class="nav-options list-inline">
+    <li>
+    <%= link_to search_deals_path do %>
+      <i class="fa fa-filter"> Filter</i>
+    <% end %>
+    </li>
+    <li>
+    <%= link_to deals_path do %>
+      <i class="fa fa-list-ul"> View List</i>
+    <% end %>
+    </li>
+     <li>
+    <%= link_to deals_path do %>
+     <i class="fa fa-map-marker"> View Map</i>
+    <% end %>
+    </li>
+  </ul>
   <div class="container">
     <%= yield %>
   </div>
