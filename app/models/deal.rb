@@ -1,5 +1,5 @@
 class Deal < ActiveRecord::Base
-  acts_as_schedulable occurrences: :deal_occurrences
+  acts_as_schedulable occurrences: {name: :deal_occurrences, dependent: :destroy}
 
   belongs_to :venue
 
