@@ -8,6 +8,19 @@ FactoryGirl.define do
     state "NH"
     zipcode "03101"
     country "US"
+
+    factory :venue_with_deals do
+
+      transient do
+        deals_count 1
+      end
+
+      after(:create) do |venue, evaluator|
+        create_list(:deal_with_occurrences, evaluator.deals_count, venue: venue)
+      end
+
+    end
+
   end
 
   trait :close do
