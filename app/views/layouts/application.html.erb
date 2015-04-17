@@ -3,7 +3,7 @@
 <head>
   <title>Sloppy Hour</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <link href='http://fonts.googleapis.com/css?family=Lobster' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=Lobster|Open+Sans' rel='stylesheet' type='text/css'>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -11,12 +11,12 @@
 <body data-no-turbolink>
   <%= render partial: 'layouts/navbar' %>
   <div class="location-bar">
-    <%= Time.now.strftime('%l:%M %P %A') + ' | ' + @city_state %>
+    <%= Time.now.strftime('%l:%M %P %A') %>
   </div>
 
   <ul class="nav-options list-inline">
     <li>
-    <%= link_to search_deals_path do %>
+    <%= link_to({controller: params[:controller], action: "search"}) do %>
       <i class="fa fa-filter"> Filter</i>
     <% end %>
     </li>

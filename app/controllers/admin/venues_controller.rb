@@ -1,6 +1,5 @@
 class Admin::VenuesController < ApplicationController
   before_filter :set_venue, only: [:show, :edit, :update, :destroy]
-  before_filter :user_location
   respond_to :html, :json
 
   def index

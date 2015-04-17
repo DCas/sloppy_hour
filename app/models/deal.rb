@@ -1,4 +1,5 @@
 class Deal < ActiveRecord::Base
+  include Comparable
   acts_as_schedulable occurrences: {name: :deal_occurrences, dependent: :destroy}
   acts_as_taggable
   acts_as_taggable_on :item_types
@@ -8,15 +9,19 @@ class Deal < ActiveRecord::Base
 
   scope :occurring_on, -> (date){ joins(:deal_occurrences).merge(DealOccurrence.unscoped.on_date(date)) }
 
+  delegate :start_time, :end_time, to: :schedule
+
+  DEAL_TYPES = ["beer", "food", "liquor", "cocktails", "shots"]
+
   def self.filtered(params)
-    # 5.times {puts params[:date] if params && params[:date]}
-    # if params && params[:date]
-    #   Deal.occurring_on(Chronic.parse('next ' + params[:date]))
-    # else
-    #   Deal.occurring_on(Date.current)
-    # end
+    
     filter.restrict(params)
 
+  end
+
+  def <=>(another)
+    earliest = DateTime.new
+    (schedule.end_time || earliest) <=> (another.schedule.end_time || earliest)
   end
 
   private

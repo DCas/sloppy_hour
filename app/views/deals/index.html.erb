@@ -19,7 +19,7 @@
     <% @deals.each do |deal| %>
       <%#= render partial: 'venues/venue', object: deal.venue %>
 
-    <tr class="deal <%= deal.item_type_list.join(' ') %>">
+    <tr class="deal ">
       <td><%= link_to deal.title, deal %></td>
       <td><%= deal.description %></td>
       <td><%= deal.item_type_list %></td>
