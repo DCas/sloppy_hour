@@ -7,7 +7,10 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <%= link_to 'Sloppy Hour', root_path, class: 'navbar-brand' %>
+
+      <%= link_to root_path, class: 'navbar-brand' do%>
+        <i class="fa fa-beer"></i> Sloppy Hour 
+      <% end %>
     </div>
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">

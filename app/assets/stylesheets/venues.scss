@@ -8,16 +8,23 @@
 	padding-left: 0;
 
 	h3 {
-		font-size: 18px;
+		font-size: 16px;
 		margin: 0;
 		font-weight: 600;
+		font-family: $sans-font-stack;
+
 	}
 
+	a {
+		color: black;
+	}
 
 	> li {
 		@include make-row();
 		padding: 10px 0;
-		border-top: 1px solid gray;
+		border-top: 2px solid #fff;
+		background-color: $accent-color;
+		color: black;
 	}
 }
 
@@ -27,8 +34,21 @@
 	i {
 		float: right;
 	}
-}
 
+
+}
+	.venue-deals {
+		// display: none;
+		background-color: $primary-color;
+		color: #fff;
+		table > tbody > tr > td {
+			background-color: $primary-color;
+			color: #fff;
+		}
+		a {
+			color: #fff;
+		}
+	}
 .venue-distance {
 	@include make-xs-column(2);
 }

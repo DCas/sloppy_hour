@@ -1,5 +1,5 @@
 .navbar {
-	background-color: #2D3E50;
+	background-color: $primary-color;
 	margin-bottom: 0;
 	a {
 		color: #fff;
@@ -17,15 +17,15 @@
 }
 
 .location-bar {
-	background-color: #EBEBEB;
+	background-color: $gray;
 	padding: 5px 0;
 	text-align: center;
-	font-size: 16px;
 	text-transform: uppercase;
 }
 
 .nav-options {
 	text-align: center;
+	margin-bottom: 0;
 
 	li {
 		padding: 0 15px;
@@ -36,15 +36,44 @@
 }
 
 .nav-options {
-	background-color: #1F2025;
+	background-color: $primary-color-darker;
 	color: #fff;
 	padding: 5px 0;
 }
 
 h2 {
 	background-color: #2D3E50;
-	padding: 10px 3px;
+	padding: 5px 10px;
 	font-size: 20px;
-	font-weight: bold;
 	color: #fff;
 }
+
+.btn-accent {
+	background-color: $accent-color;
+	color: #fff;
+}
+
+.navbar-default {
+
+	.navbar-brand {
+	font-family: 'Lobster', cursive;
+	color: #fff;
+	font-size: 24px;
+		i {
+			color: $accent-color;
+		}
+
+	}
+
+
+
+	.navbar-toggle {
+		border: none;
+
+		.icon-bar {
+			height: 3px;
+			background-color: #fff;
+		}
+	}
+}
+
