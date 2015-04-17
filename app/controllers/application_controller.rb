@@ -5,9 +5,13 @@ class ApplicationController < ActionController::Base
   before_filter :user_location
 
   def user_location
-    @lat_lng ||= cookies[:lat_lng] ? cookies[:lat_lng].split("|") : request.location.coordinates
-    geo_result = Geocoder.search(@lat_lng).first
-    @city_state ||= geo_result.data["address_components"][2]["long_name"] + ", " + geo_result.data["address_components"][4]["short_name"]
+    @lat_lng ||= set_location
+  end
+
+  private
+
+  def set_location
+    cookies[:lat_lng].nil? ? request.location.coordinates : cookies[:lat_lng].split("|")
   end
 
 end

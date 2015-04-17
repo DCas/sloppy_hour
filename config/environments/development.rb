@@ -1,10 +1,12 @@
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
 
-  #spoof ip for geocoder development
-  config.middleware.use Rack::LiveReload
-  config.middleware.use('SpoofIp', '75.69.59.26')
 
+  config.middleware.use Rack::LiveReload
+  
+  #spoof ip for geocoder development
+  config.middleware.use('SpoofIp', '75.69.59.26')
+  # config.middleware.use('SpoofIp', '69.49.175.214') #albuquerque
   # In the development environment your application's code is reloaded on
   # every request. This slows down response time but is perfect for development
   # since you don't have to restart the web server when you make code changes.
