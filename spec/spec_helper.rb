@@ -19,7 +19,13 @@ RSpec.configure do |config|
   # rspec-expectations config goes here. You can use an alternate
   # assertion/expectation library such as wrong or the stdlib/minitest
   # assertions if you prefer.
-  
+
+  config.before(:each) do
+    # suppress console logging so puts from gems don't litter output
+    allow_any_instance_of(IO).to receive(:puts)
+    allow_any_instance_of(IO).to receive(:print)
+  end
+
   config.expect_with :rspec do |expectations|
     # This option will default to `true` in RSpec 4. It makes the `description`
     # and `failure_message` of custom matchers include text for helper methods
