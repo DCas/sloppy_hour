@@ -1,10 +1,9 @@
-class VenuesController < ApplicationController
+ class VenuesController < ApplicationController
   before_filter :set_venue, only: [:show, :edit, :update, :destroy]
-  before_filter :user_location
   respond_to :html, :json
 
   def index
-    @venues = Venue.near(location_query).with_deals_on(Date.current).preload(:todays_deals)
+    @venues = Venue.near(user_location, 20).with_deals_on(search_date)
   end
 
   def show
@@ -40,6 +39,7 @@ class VenuesController < ApplicationController
   end
 
   private
+
   def venue_params
     params.require(:venue).permit(:name, :street_number, :street, :city, :state, :zipcode, :country, :latitude, :longitude, :website, :google_place_id)
   end
@@ -48,11 +48,24 @@ class VenuesController < ApplicationController
     @venue = Venue.find(params[:id])
   end
 
-  def location_query
-    if params[:search] && params[:search][:location]
-      params[:search][:location]
+  def search_date
+    if params[:filter] && !params[:filter][:date].empty?
+      if DateTime.parse(params[:filter][:date]).wday == DateTime.now.wday
+        @search_date = Date.parse(params[:filter][:date])
+      else
+        @search_date = Chronic.parse("next " + params[:filter][:date])
+      end
     else
-      @lat_lng
+      @search_date = Date.current
+    end
+    @search_date
+  end
+
+  def search_location
+    if params[:filter] && !params[:filter][:location].empty?
+      params[:filter][:location]
+    else
+      user_location
     end
   end
 

@@ -1,0 +1,22 @@
+<%= form_for :filter, method: :get, url: venues_path do |f| %>
+
+  <h2>What I want:</h2>
+  <div class="form-group item-types">
+    <%= f.collection_check_boxes(:item_type_list, Deal::DEAL_TYPES, proc{|x| x}, proc{|x| x.capitalize}, {:item_wrapper_class => 'checkbox-inline', :class => 'form-control'}) do |b| %>
+      <%= b.label(class: "checkbox-inline") { b.check_box(:checked => true, class: "check_box") + b.text } %>
+    <% end %>
+  </div>
+
+  <h2>Where I want:</h2>
+  <div class="form-group">
+    <%= f.text_field :location, class: 'form-control', placeholder: 'Current Location' %>
+  </div>
+
+  <h2>When I want:</h2>
+  <div class="form-group">
+    <%= f.collection_select :date, Date::DAYNAMES, :to_s, :to_s, {selected: Date.current.strftime("%A")}, {:class => 'form-control'} %>
+  </div>
+
+  <%= f.submit "Filter Results", class: 'btn btn-accent btn-lg btn-block' %>
+
+<% end %>

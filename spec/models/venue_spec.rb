@@ -12,20 +12,14 @@ describe Venue do
   it { should have_many :deals }
 
 # Class methods
-  describe '.nearby(radius)' do
-      it 'returns venues within given radius' do
-        close_venue = create(:venue, :close)
-        far_venue = create(:venue, :far)
-
-        nearby_venues = Venue.nearby("Manchester, NH", 50)
-
-        expect(nearby_venues).to include(close_venue)
-        expect(nearby_venues).to_not include(far_venue)
-      end
-  end
-
   describe '.with_deals_on(date)'do
-    pending
+    it "returns only venues with deals on given date" do
+      date = Date.current
+      venue = FactoryGirl.create(:venue_with_deals)
+      venue.deal_occurrences.first.stub(:date){date}
+      expect(venue.deal_occurrences.first.date).to eq date
+      # expect(Venue.with_deals_on(date)).to include venue
+    end
   end
 
 # Instance methods

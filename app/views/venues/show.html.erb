@@ -1,6 +1,7 @@
 <h1><%= @venue.name %></h1>
 
 <p><%= @venue.address %><p>
+<p><%= link_to 'website', @venue.website %><p>
 
 <hr>
 <%= button_to 'Add New Deal', new_deal_path(:venue_id => @venue.id), class: "btn btn-primary pull-right", method: "get" %>

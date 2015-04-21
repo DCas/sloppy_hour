@@ -1,10 +1,13 @@
 class DealsController < ApplicationController
-  before_filter :authenticate_user!, except: [:index, :show]
+  # before_filter :authenticate_user!, except: [:index, :show]
   before_filter :set_deal, only: [:show, :edit, :update, :destroy]
-  before_filter :filter_blank_times, only: [:create, :update]
 
   def index
-    @deals = Deal.all
+    @deals = Deal.filtered(params[:filter])
+  end
+
+  def search
+
   end
 
   def show
@@ -51,24 +54,7 @@ class DealsController < ApplicationController
   end
 
   def deal_params
-    params.require(:deal).permit(:title, :description, :venue_id, :deal_start, :deal_end, :time, item_type_list: [], schedule_attributes: Schedulable::ScheduleSupport.param_names)
-  end
-
-  def filter_blank_times
-      if deal_params['deal_start(3i)'].blank?
-          deal_params['deal_start(1i)'] = ""
-          deal_params['deal_start(2i)'] = ""
-          deal_params['deal_start(3i)'] = ""
-          deal_params['deal_start(4i)'] = ""
-          deal_params['deal_start(5i)'] = ""
-      end
-      if deal_params['deal_end(3i)'].blank?
-          deal_params['deal_end(1i)'] = ""
-          deal_params['deal_end(2i)'] = ""
-          deal_params['deal_end(3i)'] = ""
-          deal_params['deal_end(4i)'] = ""
-          deal_params['deal_end(5i)'] = ""
-      end
+    params.require(:deal).permit(:title, :description, :venue_id, :deal_start, :deal_end, :time, :filter, item_type_list: [], schedule_attributes: Schedulable::ScheduleSupport.param_names << [:start_time, :end_time])
   end
 
 end

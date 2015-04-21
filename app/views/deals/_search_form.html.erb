@@ -1,0 +1,14 @@
+<%= form_for :filter, method: :get, url: deals_path do |f| %>
+  <div class="form-group item-types">
+    <%= f.collection_check_boxes(:item_type_list, Deal::DEAL_TYPES, proc{|x| x}, proc{|x| x.capitalize}, {:item_wrapper_class => 'checkbox-inline', :class => 'form-control'}) do |b| %>
+      <%= b.label(class: "checkbox-inline") { b.check_box(:checked => true, class: "check_box") + b.text } %>
+    <% end %>
+  </div>
+
+  <div class="form-group">
+    <%= f.collection_select :date, Date::DAYNAMES, :to_s, :to_s, {selected: Date.current.strftime("%A")}, {:class => 'form-control'} %>
+  </div>
+
+  <%= f.submit 'Search', class: 'btn btn-default' %>
+<% end %>
+

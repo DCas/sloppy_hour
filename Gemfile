@@ -47,6 +47,9 @@ gem 'oj'
 
 gem 'acts-as-taggable-on', '~> 3.4'
 
+gem 'redis-namespace'
+gem 'redis-rails'
+
 # gem 'schedulable', github: 'DCas/schedulable', branch: 'master'
 # gem 'schedulable', :path => "~/gemcache/schedulable"
 
@@ -84,4 +87,5 @@ group :development do
   gem 'guard-livereload', '~> 2.4', require: false
   gem "rack-livereload", :group => :development
   gem 'quiet_assets'
+  gem 'annotate', '~> 2.6.6'
 end

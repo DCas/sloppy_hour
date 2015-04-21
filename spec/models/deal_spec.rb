@@ -14,6 +14,12 @@ describe Deal do
     end
   end
 
+  describe "Deal.filtered" do
+    pending
+    it "should filter Deals" do
+    end
+  end
+
 # Instance methods
   describe "#destroy" do
     it "should destroy associated DealOccurrences" do

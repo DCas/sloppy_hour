@@ -1,8 +1,8 @@
 <li>
   <div class="venue">
     <div class="venue-distance accent-data">
-      <span><%= venue.geocoded? ? venue.distance.round(1) : '-' %><span>
-      <span>Miles</span>
+      <span><%= venue.geocoded? ? venue.distance.round(1).to_s + " mi." : '-' %><span>
+      <span><%#= venue.geocoded? ? venue.distance_from(@lat_lng).round(1) : '-' %><span>
     </div>
 
     <div class="venue-details">
@@ -11,14 +11,15 @@
     </div>
 
     <div class="countdown accent-data">
-      <span><%= "-" %></span>
-      <span>Remaining</span>
+      <!-- <span><%= "-" %></span> -->
+      <span><%= venue.deals.first.schedule.first.end_time.strftime('%l:%M %P') %></span>
+      <!-- <span>Remaining</span> -->
     </div>
 
   </div>
-<!--     <div class="table-responsive">
+<div class="venue-deals" class="table-responsive">
       <table class="table">
-        <% venue.todays_deals.each do |deal| %>
+        <% venue.deals.occurring_on(@search_date).each do |deal| %>
           <tr>
             <th scope="row"><i class="fa fa-beer"></i></th>
             <td><%= link_to deal.title, deal %></td>
@@ -26,7 +27,7 @@
           </tr>
         <% end %>
       </table>
-    </div> -->
+    </div
 </li>
 
 <!--

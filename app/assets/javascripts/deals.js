@@ -1,3 +1,29 @@
-# Place all the behaviors and hooks related to the matching controller here.
-# All this logic will automatically be available in application.js.
-# You can use CoffeeScript in this file: http://coffeescript.org/
+var Deals = {
+
+	'init': function() {
+		this.container = $('#deals');
+
+		this.container.isotope({
+		  itemSelector: '.deal',
+		  layoutMode: 'vertical'
+		});
+
+		$('.item-types').on( 'click', 'input[type=checkbox]', Deals.filter);
+	},
+
+	'filter': function() {
+		var filters = [];
+
+		$('.item-types input[type=checkbox]:checked').each(function() {
+			filters.push('.' + $(this).attr('value'));
+		});
+
+		var filterValue = filters.join(', ');
+		$('#deals').isotope({ filter: filterValue });
+	}
+	
+}
+
+$(document).ready( function(){
+	Deals.init();	
+})
