@@ -8,6 +8,14 @@
 
 .navbar-default .navbar-nav > li > a {
 	color: #fff;
+
+	&:hover {
+		color: $accent-color;
+	}
+}
+
+.navbar-default .navbar-toggle:hover, .navbar-default .navbar-toggle:focus {
+	background-color: inherit;
 }
 
 .navbar-default .navbar-brand {
@@ -56,13 +64,12 @@ h2 {
 .navbar-default {
 
 	.navbar-brand {
-	font-family: 'Lobster', cursive;
-	color: #fff;
-	font-size: 24px;
-		i {
+		font-family: 'Lobster', cursive;
+		color: #fff;
+		font-size: 24px;
+		&:hover {
 			color: $accent-color;
 		}
-
 	}
 
 
