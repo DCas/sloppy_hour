@@ -12,13 +12,12 @@ describe Venue do
   it { should have_many :deals }
 
 # Class methods
-  describe '.with_deals_on(date)'do
-    it "returns only venues with deals on given date" do
+  describe '.with_deals_on(date)', :wip do
+    it "returns only venues with deals on given date", :pending do
       date = Date.current
       venue = FactoryGirl.create(:venue_with_deals)
       venue.deal_occurrences.first.stub(:date){date}
       expect(venue.deal_occurrences.first.date).to eq date
-      # expect(Venue.with_deals_on(date)).to include venue
     end
   end
 
