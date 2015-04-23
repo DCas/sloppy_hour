@@ -6,5 +6,5 @@ Geocoder.configure(
   :ip_lookup => :freegeoip,
 
   :timeout => 5,
-  :cache => Redis.new
+  :cache => $redis
 )
