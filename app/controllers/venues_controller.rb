@@ -3,7 +3,7 @@
   respond_to :html, :json
 
   def index
-    @venues = Venue.near(user_location, 20).with_deals_on(search_date)
+    @venues = Venue.near(search_location.coordinates, 20).with_deals_on(search_date)
   end
 
   def show
@@ -63,7 +63,7 @@
 
   def search_location
     if params[:filter] && !params[:filter][:location].empty?
-      params[:filter][:location]
+      Geocoder.search(params[:filter][:location]).first
     else
       user_location
     end
