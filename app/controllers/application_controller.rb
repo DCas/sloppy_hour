@@ -5,13 +5,14 @@ class ApplicationController < ActionController::Base
   before_filter :user_location
 
   def user_location
-    @lat_lng ||= set_location
+    @user_location = Location.new(IPLocationStrategy.new(request))
+    @lat_lng ||= @user_location.coordinates
   end
 
   private
 
   def set_location
-    cookies[:lat_lng].nil? ? request.location.coordinates : cookies[:lat_lng].split("|")
+    cookies[:lat_lng].nil? ? @user_location.coordinates : cookies[:lat_lng].split("|")
   end
 
 end
