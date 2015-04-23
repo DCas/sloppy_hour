@@ -15,11 +15,12 @@ class NullLocationStrategy
     {
       'latitude'     => 42.9956397,
       'longitude'    => -71.4547891,
-      'address'      => 'asdf',
+      'city'         => 'Manchester',
       'state'        => 'New Hampshire',
       'state_code'   => 'NH',
       'country'      => 'United States',
       'country_code' => 'US'
     }
   end
+
 end

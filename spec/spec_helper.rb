@@ -22,8 +22,8 @@ RSpec.configure do |config|
 
   config.before(:each) do
     # suppress console logging so puts from gems don't litter output
-    allow_any_instance_of(IO).to receive(:puts)
-    allow_any_instance_of(IO).to receive(:print)
+    # allow_any_instance_of(IO).to receive(:puts)
+    # allow_any_instance_of(IO).to receive(:print)
   end
 
   config.expect_with :rspec do |expectations|
