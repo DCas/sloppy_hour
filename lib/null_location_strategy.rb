@@ -1,11 +1,17 @@
 class NullLocationStrategy
+  attr :data
+
+  def initialize
+    @data = location_data
+  end
+
   def coordinates
-    [default_location['latitude'], default_location['longitude']]
+    [data['latitude'], data['longitude']]
   end
 
   private
 
-  def default_location
+  def location_data
     {
       'latitude'     => 42.9956397,
       'longitude'    => -71.4547891,
