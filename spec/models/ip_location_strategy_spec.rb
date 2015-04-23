@@ -19,14 +19,14 @@ describe 'IPLocationStrategy' do
   context 'Request has location' do
 	  describe '#coordinates' do
 	    it "returns array with GPS coordinates for request IP" do
-	    	request_coordinates = [35.109, -106.581]
-	    	location = double(:coordinates => request_coordinates)
+	    	location_data = {"latitude" => 35.109, 'longitude' => -106.581}
+	    	location = double(:data => location_data)
 	    	request = double("request", :location => location)
 	      strategy = IPLocationStrategy.new(request)
 
 	      coordinates = strategy.coordinates
 	      
-	      expect(coordinates).to eq request_coordinates
+	      expect(coordinates).to eq location_data.values
 	    end
 	  end
 	end
