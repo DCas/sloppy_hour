@@ -11,7 +11,7 @@
 <body data-no-turbolink>
   <%= render partial: 'layouts/navbar' %>
   <div class="location-bar">
-    <%= Time.now.strftime('%l:%M %P %A') %>
+    <%= Time.now.strftime('%l:%M %P %A') + ' | ' + @user_location.city %>
   </div>
 
   <ul class="nav-options list-inline">
@@ -31,6 +31,7 @@
     <% end %>
     </li>
   </ul>
+
   <div class="container">
     <%= yield %>
   </div>
