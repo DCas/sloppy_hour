@@ -15,6 +15,6 @@
 //= require bootstrap-sprockets
 //= require jquery-geocomplete
 //= require isotope/dist/isotope.pkgd.min.js
-//= require deals
 //= require turbolinks
+//= require base
 //= require_tree .
