@@ -8,7 +8,8 @@ class Deal < ActiveRecord::Base
   validates :title, :venue, presence: true
 
   scope :occurring_on, -> (date){ joins(:deal_occurrences).merge(DealOccurrence.unscoped.on_date(date)) }
-
+  scope :with_tags, -> (tags){ tagged_with(tags, on: :item_types, any: true) }
+  
   delegate :start_time, :end_time, to: :schedule
 
   DEAL_TYPES = ["beer", "food", "liquor", "cocktails", "shots"]
