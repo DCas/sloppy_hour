@@ -72,3 +72,35 @@
 
 
 }
+
+.item-types {
+	text-align: center;
+	
+	label.checkbox-inline {
+		width: 40px;
+		padding-left: 0;
+	}
+
+	label>input[type=checkbox] {
+		/* to hide the checkbox itself */
+		&:before {
+		    background-color: #FFFFFF;
+		    height: 100%;
+			width: 100%;
+		    font-family: FontAwesome;
+		    font-size: 32px;
+		    display: inline-block;
+		    letter-spacing: 10px;
+		    color: #BDBDBD;
+		    line-height: 5px;
+		}
+
+	 	&:checked:before { color: #333333; }
+
+	    &.beer:before { content:"\f0fc"; }
+	    &.food:before { content:"\f0f5";	}
+	    &.liquor:before { content:"\f1e2";	}
+	    &.cocktails:before { content:"\f000";	}
+	    &.shots:before { content:"\f0c3";	}
+	}
+}
