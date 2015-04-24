@@ -1,0 +1,17 @@
+<ul class="nav-options list-inline">
+  <li>
+  <%= link_to({controller: params[:controller], action: "index"}) do %>
+    <i class="fa fa-filter"> Filter</i>
+  <% end %>
+  </li>
+  <li>
+  <%= link_to '#' do %>
+    <i class="fa fa-list-ul"> View List</i>
+  <% end %>
+  </li>
+   <li>
+  <%= link_to "#" do %>
+   <i class="fa fa-map-marker"> View Map</i>
+  <% end %>
+  </li>
+</ul>
