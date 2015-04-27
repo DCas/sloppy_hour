@@ -15,11 +15,7 @@ class IPLocationStrategy
   private
 
   def location_data
-    if !(location = @request.location)
-      NullLocationStrategy.new.data
-    else
-      location.data
-    end
+    @request.location.data
   end
 
 end
