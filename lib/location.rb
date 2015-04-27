@@ -1,19 +1,35 @@
 require 'null_location_strategy'
-require 'ip_location_strategy'
 
 class Location
-	
+
+	def self.data_whitelist
+		[:latitude, :longitude, :city, :state]
+	end
+
+	data_whitelist.each do |attribute|
+		define_method(attribute) do
+			@data[attribute]
+		end
+	end
+
 	def initialize(location_strategy = NullLocationStrategy.new)
 		@location_strategy = location_strategy
-		@data = @location_strategy.data
+		begin
+			@data = filter_data(@location_strategy.data)
+		rescue
+			@data = filter_data(NullLocationStrategy.new.data)
+		end
 	end
 
 	def coordinates
-		@location_strategy.coordinates
+		[latitude, longitude]
 	end
 
-	def city
-		@data["city"]
+	private
+
+	def filter_data(data)
+		h = {}
+		data.keys.map {|k| h[k.to_sym] = data[k] if Location.data_whitelist.include?(k.to_sym)}; h
 	end
 
 end

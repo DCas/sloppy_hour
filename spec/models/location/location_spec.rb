@@ -2,7 +2,7 @@ require 'spec_helper'
 require 'location'
 
 describe Location do
-	it { should respond_to :coordinates, :city }
+	it { should respond_to :latitude, :longitude, :city, :state }
 	
 	describe "#coordinates" do
 		it "returns array with GPS coordinates" do

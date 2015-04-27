@@ -1,5 +1,3 @@
-require 'null_location_strategy'
-
 class IPLocationStrategy
   attr :data
 

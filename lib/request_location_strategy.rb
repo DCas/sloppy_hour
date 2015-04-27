@@ -1,4 +1,3 @@
-require 'null_location_strategy'
 require 'ip_location_strategy'
 require 'cookie_location_strategy'
 
@@ -19,10 +18,8 @@ class RequestLocationStrategy
   def location_data
     if @request.cookies["lat_lng"]
       CookieLocationStrategy.new(@request).data
-    elsif location = @request.location
+    elsif @request.location
       IPLocationStrategy.new(@request).data
-    else
-      NullLocationStrategy.new.data
     end
   end
 

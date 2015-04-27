@@ -1,4 +1,3 @@
-require 'null_location_strategy'
 require 'geocoder'
 
 class CookieLocationStrategy
