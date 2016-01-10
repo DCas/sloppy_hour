@@ -1,5 +1,6 @@
 <ul class="nav-options list-inline">
   <li>
+  <% unless params[:controller] == 'devise/sessions' %>
   <%= link_to({controller: params[:controller], action: "index"}) do %>
     <i class="fa fa-filter"> Filter</i>
   <% end %>
@@ -14,4 +15,5 @@
    <i class="fa fa-map-marker"> View Map</i>
   <% end %>
   </li>
+  <% end %>
 </ul>
